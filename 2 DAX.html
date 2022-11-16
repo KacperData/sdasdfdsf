@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>DS Salary</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Back</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="2 Project 1.html">Project 2</a></li>
+							<li><a href="2 PBI.html">Power BI</a></li>
+							<li class="active"><a href="2 DAX.html">DAX</a></li>
+							<li><a href="2 Excel.html">Excel</a></li>
+						</ul>
+						<ul class="icons">
+
+						</ul>
+					</nav>
+
+				                <!-- Main -->
+								<div id="main">
+									
+									<!-- Post -->
+										<section class="post">
+									
+												<div class="major">
+													<div class="col-12 col-20-small">
+													<center><h3>DAX queries with description</h3></center> <br>
+									
+			
+											<p>Information how many rows we have for particaular working model and to use this in future for count queries:
+											<pre><b>_Total working model = COUNTROWS(DS_salaries)</b></pre></p><br>
+											<p>Calculated how many percent particular working model has by total working models. Calculated to check if I calculated other queries properly:
+											<pre><b>% working model =
+	DIVIDE( 
+		[_Total working model], 
+		CALCULATE( 
+			[_Total working model], 
+			ALLSELECTED(DS_salaries[Working_Model] ) 
+		)
+	)</b> </pre>	
+										</p><br>
+										<p>Calculated how many hybrid working model are for working models. I did the same query for remote and office work:
+										<pre><b>Hybrid = 
+	CALCULATE(
+		[_Total working model],
+		DS_salaries[Working_Model] = "Hybrid work"
+	)</b></pre>	</p> <br>
+											<p>Calculated percent hybrid working model from total working model.  I did the same query for remote and office work:
+											<pre><b>% hybrid = 
+	DIVIDE(
+		[Hybrid],
+		[_Total working model],
+		0
+	) </b></pre></p><br>
+
+											<p>Below result of all above DAX calculations for hybrid model:</p>
+											<a ><img src="images/2DAX.JPG" alt="" /></a>
+											
+
+										</section>
+								</div>
+							<!-- Footer -->
+								<footer id="footer">
+									
+									</section>
+								</footer>
+							<!-- Copyright -->
+								<div id="copyright">
+							
+						</div>
+					<!-- Scripts -->
+					<script src="assets/js/jquery.min.js"></script>
+					<script src="assets/js/jquery.scrollex.min.js"></script>
+					<script src="assets/js/jquery.scrolly.min.js"></script>
+					<script src="assets/js/browser.min.js"></script>
+					<script src="assets/js/breakpoints.min.js"></script>
+					<script src="assets/js/util.js"></script>
+					<script src="assets/js/main.js"></script>
+				
+				</body>
+			</html>
